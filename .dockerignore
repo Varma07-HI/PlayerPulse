@@ -1,0 +1,6 @@
+.venv
+.git
+data
+mlruns
+notebooks
+dashboard_data
