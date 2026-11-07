@@ -1,0 +1,51 @@
+{
+  "chosen_model": "xgb_weighted",
+  "threshold": 0.33999999999999997,
+  "features": [
+    "matches_7d",
+    "matches_14d",
+    "matches_30d",
+    "matches_60d",
+    "days_since_last",
+    "win_rate_7d",
+    "win_rate_30d",
+    "avg_kills_30d",
+    "avg_deaths_30d",
+    "avg_assists_30d",
+    "avg_duration_30d",
+    "kda_30d",
+    "activity_trend",
+    "account_age_days"
+  ],
+  "valid_scores": {
+    "baseline_prior": {
+      "pr_auc": 0.1581196581196581,
+      "roc_auc": 0.5,
+      "brier": 0.13620607463652548
+    },
+    "logreg": {
+      "pr_auc": 0.4573754134998195,
+      "roc_auc": 0.8145759973171142,
+      "brier": 0.10911387899956068
+    },
+    "xgb_plain": {
+      "pr_auc": 0.4805405787826651,
+      "roc_auc": 0.7969695583908781,
+      "brier": 0.11212171614170074
+    },
+    "xgb_weighted": {
+      "pr_auc": 0.49909039893600854,
+      "roc_auc": 0.8104906937394247,
+      "brier": 0.12790223956108093
+    }
+  },
+  "test_metrics": {
+    "pr_auc": 0.36115248134049416,
+    "roc_auc": 0.8159544679814951,
+    "brier": 0.0972820296883583,
+    "threshold": 0.33999999999999997,
+    "test_churn_rate": 0.13043478260869565,
+    "precision_at_thr": 0.39823008849557523,
+    "recall_at_thr": 0.40540540540540543
+  }
+}
