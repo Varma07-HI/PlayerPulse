@@ -1,6 +1,8 @@
 import sqlite3
+
 import pandas as pd
-from src.config import (RAW_DIR, DB_PATH, DAY, CUTOFF_STEP_DAYS, HISTORY_DAYS, HORIZON_DAYS)
+
+from src.config import CUTOFF_STEP_DAYS, DAY, DB_PATH, HISTORY_DAYS, HORIZON_DAYS, RAW_DIR
 
 
 def main():

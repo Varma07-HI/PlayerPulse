@@ -1,6 +1,8 @@
 import time
-import requests
+
 import pandas as pd
+import requests
+
 from src.config import RAW_DIR
 
 BASE = 'https://api.opendota.com/api'

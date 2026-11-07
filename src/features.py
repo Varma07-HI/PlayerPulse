@@ -1,6 +1,7 @@
 import sqlite3
-import numpy as np
+
 import pandas as pd
+
 from src.config import DB_PATH, PROC_DIR
 
 SQL = '''

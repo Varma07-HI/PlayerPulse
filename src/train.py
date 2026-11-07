@@ -1,4 +1,5 @@
 import json
+
 import joblib
 import mlflow
 import numpy as np
@@ -33,9 +34,9 @@ def main():
           round(yva.mean(), 3), round(yte.mean(), 3))
 
     spw = (ytr == 0).sum() / max((ytr == 1).sum(), 1)
-    xgb_params = dict(n_estimators=300, max_depth=4, learning_rate=0.05,
-                      subsample=0.8, colsample_bytree=0.8, eval_metric='aucpr',
-                      random_state=42)
+    xgb_params = {'n_estimators': 300, 'max_depth': 4, 'learning_rate': 0.05,
+                      'subsample': 0.8, 'colsample_bytree': 0.8, 'eval_metric': 'aucpr',
+                      'random_state': 42}
     models = {
         'baseline_prior': DummyClassifier(strategy='prior'),
         'logreg': make_pipeline(SimpleImputer(strategy='median'), StandardScaler(),
@@ -66,7 +67,7 @@ def main():
     p_te = iso.predict(model.predict_proba(Xte)[:, 1])
 
     thr, _ = best_threshold(yva.values, p_va)            # chosen on validation
-    _, net_te = best_threshold(yte.values, np.array([thr] * 0 + list(p_te)))  # for reference
+    _, _net_te = best_threshold(yte.values, np.array([thr] * 0 + list(p_te)))  # for reference
     flagged = p_te >= thr
     test_m = metrics(yte, p_te)
     test_m.update({'threshold': thr,

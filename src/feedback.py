@@ -1,6 +1,8 @@
 import sqlite3
+
 import pandas as pd
 from sklearn.metrics import average_precision_score
+
 from src.config import DAY, DB_PATH
 
 
