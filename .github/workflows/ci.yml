@@ -11,4 +11,6 @@ jobs:
           cache: pip
       - run: pip install -r requirements-api.txt pytest httpx ruff
       - run: ruff check .
-      - run: pytest -q
+      - env:
+          PYTHONPATH: .
+        run: pytest -q
