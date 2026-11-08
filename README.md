@@ -3,8 +3,8 @@
 
 ![CI](https://github.com/VARMA07-HI/playerpulse/actions/workflows/ci.yml/badge.svg)
 
-* **Live API Deployment:** `https://playerpulse-gamer.onrender.com/docs`
-* **Live Interactive Dashboard:** `https://playerpulsegamer.streamlit.app/`
+* **Live API Deployment:** https://playerpulse-gamer.onrender.com/docs
+* **Live Interactive Dashboard:** https://playerpulsegamer.streamlit.app/
 
 ![Dashboard Overview](docs/dashboard_1.png)
 
@@ -14,7 +14,8 @@
 
 In online multiplayer games, retaining an active player base is vital to community health and monetization, making it essential to identify fading engagement before a player quits entirely. This platform evaluates historical telemetry to predict whether an active player (played $\ge 1$ match in the last 30 days) will record zero matches in the following 30 days.
 
-**Data Source:** This project was trained and evaluated using telemetry data processed into `data/raw/matches.parquet` [FILL GAP: State plainly whether you used real OpenDota match telemetry ingested via `src/ingest.py` or the synthetic fallback generator via `src/synthetic.py`].
+**Data Source:** This project was trained and evaluated using telemetry data processed into `data/raw/matches.parquet`.
+Trained on real match histories collected from the OpenDota public API using src/ingest.py.
 
 ---
 
