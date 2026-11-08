@@ -1,7 +1,7 @@
 import subprocess
 import sys
 
-r = subprocess.run([sys.executable, '-m', 'src.monitor'])
+r = subprocess.run([sys.executable, '-m', 'src.monitor'], check=False)
 if r.returncode == 1:
     print('Drift detected -> rebuilding features, retraining, rescoring')
     for mod in ['src.features', 'src.train', 'src.score']:

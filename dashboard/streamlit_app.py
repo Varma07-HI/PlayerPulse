@@ -3,7 +3,6 @@ from pathlib import Path
 
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 import streamlit as st
 import streamlit.components.v1 as components
 from sklearn.calibration import calibration_curve
@@ -54,13 +53,13 @@ def style(fig, height=420):
         template='plotly_white',
         colorway=COLORWAY,
         height=height,
-        margin=dict(l=10, r=10, t=55, b=10),
+        margin={'l': 10, 'r': 10, 't': 55, 'b': 10},
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
-        font=dict(size=13),
-        title_font=dict(size=17),
-        legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1),
-        hoverlabel=dict(font_size=13),
+        font={'size': 13},
+        title_font={'size': 17},
+        legend={'orientation': 'h', 'yanchor': 'bottom', 'y': 1.02, 'xanchor': 'right', 'x': 1},
+        hoverlabel={'font_size': 13},
     )
     fig.update_xaxes(gridcolor='rgba(127,127,127,.18)', zeroline=False)
     fig.update_yaxes(gridcolor='rgba(127,127,127,.18)', zeroline=False)
@@ -146,7 +145,7 @@ with tabs[2]:
     fig = px.line(ret, x='month_idx', y='retention', color='cohort',
                   labels={'month_idx': 'Months since first match',
                           'retention': 'Share still playing', 'cohort': 'Cohort'})
-    fig.update_traces(line=dict(width=2.5))
+    fig.update_traces(line={'width': 2.5})
     fig.update_yaxes(tickformat='.0%')
     show_chart(style(fig, 480))
 
@@ -157,7 +156,7 @@ with tabs[3]:
     prec, rec, _ = precision_recall_curve(test.churn, test.p)
     pr = px.area(x=rec, y=prec, title='Precision-recall curve',
                  labels={'x': 'Recall', 'y': 'Precision'})
-    pr.update_traces(line=dict(color=ACCENT, width=2.5), fillcolor='rgba(108,92,231,.15)')
+    pr.update_traces(line={'color': ACCENT, 'width': 2.5}, fillcolor='rgba(108,92,231,.15)')
     pr.update_xaxes(range=[0, 1])
     pr.update_yaxes(range=[0, 1.02])
     with left:
@@ -166,9 +165,9 @@ with tabs[3]:
     frac, mean_p = calibration_curve(test.churn, test.p, n_bins=10)
     cal = px.line(x=mean_p, y=frac, markers=True, title='Calibration',
                   labels={'x': 'Predicted probability', 'y': 'Actual churn rate'})
-    cal.update_traces(line=dict(color=ACCENT_2, width=2.5), marker=dict(size=8))
+    cal.update_traces(line={'color': ACCENT_2, 'width': 2.5}, marker={'size': 8})
     cal.add_shape(type='line', x0=0, y0=0, x1=1, y1=1,
-                  line=dict(dash='dash', color='rgba(127,127,127,.8)'))
+                  line={'dash': 'dash', 'color': 'rgba(127,127,127,.8)'})
     cal.update_xaxes(range=[0, 1])
     cal.update_yaxes(range=[0, 1])
     with right:
@@ -209,7 +208,7 @@ with tabs[4]:
     test2 = test2.sort_values('date')
     box = px.box(test2, x='date', y='p', title='Prediction distribution over time',
                  labels={'date': 'Date', 'p': 'Predicted probability'})
-    box.update_traces(marker_color=ACCENT, line=dict(width=1.5))
+    box.update_traces(marker_color=ACCENT, line={'width': 1.5})
     show_chart(style(box, 440))
 
     report = D / 'drift_report.html'

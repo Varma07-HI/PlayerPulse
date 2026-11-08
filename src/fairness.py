@@ -1,8 +1,9 @@
 import json
+
 import pandas as pd
-from fairlearn.metrics import (MetricFrame, false_negative_rate,
-                               false_positive_rate, selection_rate)
+from fairlearn.metrics import MetricFrame, false_negative_rate, false_positive_rate, selection_rate
 from sklearn.metrics import precision_score
+
 from src.config import DASH_DIR, MODEL_DIR
 
 
