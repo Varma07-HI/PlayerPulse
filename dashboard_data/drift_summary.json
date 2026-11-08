@@ -1,0 +1,7 @@
+{
+  "dataset_drift": true,
+  "share_drifted": 0.7857142857142857,
+  "n_drifted": 11,
+  "max_null_rate": 0.28319623971797886,
+  "negative_counts": 0
+}
