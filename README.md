@@ -1,0 +1,1 @@
+![CI](https://github.com/VARMA07-HI/playerpulse/actions/workflows/ci.yml/badge.svg)
